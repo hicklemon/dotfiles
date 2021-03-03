@@ -34,7 +34,7 @@ fi
 export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
-# awcli
+# awscli
 
 # OG PS1
 # PS1='[\u@\h \W]\$ '
