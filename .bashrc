@@ -1,0 +1,61 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# initialize PATH
+unset PATH
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+
+# Bash history awesomeness
+export HISTTIMEFORMAT="%Y-%m-%dT%T%z "
+export HISTCONTROL=ignoredups
+export HISTSIZE=-1
+shopt -s histappend
+shopt -s cmdhist
+shopt -s lithist
+
+# make Ctrl-W delete portions of words
+stty werase undef
+bind '\C-w:unix-filename-rubout'
+# and prevent dotfiles from being tabbed by default (must type a dot first)
+bind 'set match-hidden-files off'
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# npm
+export PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
+# awcli
+
+# OG PS1
+# PS1='[\u@\h \W]\$ '
+# New PS1
+export PROMPT_COMMAND='echo -en "\033[m\033[38;5;2m"$(( `sed -n "s/MemFree:[\t ]\+\([0-9]\+\) kB/\1/p" /proc/meminfo`/1024))"\033[38;5;22m/"$((`sed -n "s/MemTotal:[\t ]\+\([0-9]\+\) kB/\1/Ip" /proc/meminfo`/1024 ))MB" \033[m\033[38;5;55m$(< /proc/loadavg)\033[m"' \
+export PS1=' \e[1;35m\]$(date -Is)\n\[\e[1;30m\][\[\e[1;34m\]\u@\H\[\e[1;30m\]:\[\e[0;37m\]${SSH_TTY} \[\e[0;32m\]+${SHLVL}\[\e[1;30m\]] \[\e[1;37m\]\w\[\e[0;37m\] \[\e[1;92m\]\$\[\e[0m\] '
+
+### Variables
+export AWS_SDK_LOAD_CONFIG=1
+
+### Functions
+function windowclass() {
+    xprop | awk '/WM_CLASS/ {print $NF}'
+}
+
+### Aliases
+alias ls='ls --color=auto'
+alias ll='ls -al'
+alias aws-azure-login='npx aws-azure-login'
+alias gs='gis status'
+alias gp='git pull --all'
+alias ga='git add -p'
+alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
+alias tf='terraform'
