@@ -118,7 +118,7 @@ modules-right = filesystem wlan cpu temperature memory pulseaudio date powermenu
 tray-position = right
 tray-padding = 8
 tray-scale = 1
-tray-maxsize = 64
+tray-maxsize = 24
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
