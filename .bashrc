@@ -54,7 +54,7 @@ function windowclass() {
 alias ls='ls --color=auto'
 alias ll='ls -al'
 alias aws-azure-login='npx aws-azure-login'
-alias gs='gis status'
+alias gs='git status'
 alias gp='git pull --all'
 alias ga='git add -p'
 alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
