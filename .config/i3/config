@@ -256,6 +256,7 @@ bindsym $mod+shift+p exec keeperpasswordmanager
 for_window [class="Autokey-gtk"] floating enable
 for_window [class="Guake"] floating enable
 for_window [class="Keeper Password Manager"] floating enable
+for_window [class="Keybase"] floating enable
 
 # Transparency and bars
 exec --no-startup-id picom
