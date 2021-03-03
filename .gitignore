@@ -1,0 +1,12 @@
+# Ignore all
+*
+
+# But include .gitignore
+!.gitignore
+
+# And other things
+!.config/i3
+!.config/dunst
+!.config/picom
+!.config/polybar
+!.config/betterlockscreenrc

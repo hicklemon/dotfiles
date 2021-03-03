@@ -245,6 +245,7 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+shift+l exec xrandr --output "DP-0" --brightness 0.05 && betterlockscreen -l dimblur && xrandr --output "DP-0" --brightness 1
 bindsym $mod+shift+s exec maim -s -u | xclip -selection clipboard -t image/png -i
+bindsym Print exec flameshot gui
 bindsym $mod+shift+p exec keeperpasswordmanager
 
 # They all float down here
@@ -274,6 +275,8 @@ exec --no-startup-id betterlockscreen -w dim
 exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..100}; do sleep 0.025; xrandr --output "DP-0" --brightness ${i}; done' 'xrandr --output "DP-0" --brightness 1' --timer 300 'xrandr --output "DP-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "DP-0" --brightness 1'
 
 exec --no-startup-id barrier
+exec --no-startup-id nm-applet
+exec --no-startup-id flameshot
 exec --no-startup-id autokey-gtk
 exec --no-startup-id pasystray
 exec --no-startup-id guake
