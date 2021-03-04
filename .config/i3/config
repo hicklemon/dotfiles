@@ -247,6 +247,8 @@ bindsym $mod+shift+l exec xrandr --output "DP-0" --brightness 0.05 && betterlock
 bindsym $mod+shift+s exec maim -s -u | xclip -selection clipboard -t image/png -i
 bindsym Print exec flameshot gui
 bindsym $mod+shift+p exec keeperpasswordmanager
+bindsym $mod+shift+b exec --no-startup-id xrandr --output "DP-0" --brightness 1
+bindsym $mod+c exec kcalc
 
 # They all float down here
 # for_window [window_role="About"] floating enable
@@ -257,6 +259,7 @@ for_window [class="Autokey-gtk"] floating enable
 for_window [class="Guake"] floating enable
 for_window [class="Keeper Password Manager"] floating enable
 for_window [class="Keybase"] floating enable
+for_window [class="zoom"] floating enable
 
 # Transparency and bars
 exec --no-startup-id picom

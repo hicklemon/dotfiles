@@ -60,7 +60,8 @@ function windowclass() {
 ### Aliases
 alias ls='ls --color=auto'
 alias ll='ls -al'
-alias aws-azure-login='npx aws-azure-login'
+alias sl='ls'
+#alias aws-azure-login='npx aws-azure-login'
 alias gs='git status'
 alias gp='git pull --all'
 alias ga='git add -p'
