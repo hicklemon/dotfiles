@@ -75,7 +75,7 @@ mode "$mode_gaps_outer" {
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:Noto Sans 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -150,9 +150,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -249,6 +249,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+shift+p exec keeperpasswordmanager
 bindsym $mod+shift+b exec --no-startup-id xrandr --output "DP-0" --brightness 1
 bindsym $mod+c exec kcalc
+bindsym $mod+e exec dolphin
 
 # They all float down here
 # for_window [window_role="About"] floating enable
@@ -260,6 +261,7 @@ for_window [class="Guake"] floating enable
 for_window [class="Keeper Password Manager"] floating enable
 for_window [class="Keybase"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="dolphin"] floating enable
 
 # Transparency and bars
 exec --no-startup-id picom
@@ -276,7 +278,7 @@ exec --no-startup-id betterlockscreen -w dim
 #exec feh --bg-scale ~/Pictures/background.png
 
 # Run xidlehook
-exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..100}; do sleep 0.025; xrandr --output "DP-0" --brightness ${i}; done' 'xrandr --output "DP-0" --brightness 1' --timer 300 'xrandr --output "DP-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "DP-0" --brightness 1'
+exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..100}; do sleep 0.025; xrandr --output "DP-0" --brightness ${i}; done' 'xrandr --output "DP-0" --brightness 1' --timer 30 'xrandr --output "DP-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "DP-0" --brightness 1'
 
 exec --no-startup-id barrier
 exec --no-startup-id nm-applet
