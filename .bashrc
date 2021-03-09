@@ -12,9 +12,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_
 # Bash history awesomeness
 export HISTTIMEFORMAT="%Y-%m-%dT%T%z "
 export HISTCONTROL="ignoredups:ignorespace"
-export HISTSIZE="1000000000"
-export HISTSIZE=""
-export HISTFILESIZE=""
+export HISTSIZE="-1"
+export HISTFILESIZE="-1"
 shopt -u histappend
 shopt -s cmdhist
 shopt -s lithist
