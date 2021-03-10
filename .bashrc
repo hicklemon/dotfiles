@@ -68,3 +68,4 @@ alias gp='git pull --all'
 alias ga='git add -p'
 alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
 alias tf='terraform'
+alias dudeicantsee='xrandr --output "DP-0" --brightness 1'

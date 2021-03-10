@@ -54,7 +54,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=16;1
+font-0 = Noto Sans Mono:pixelsize=16;1
 font-1 = unifont:fontformat=truetype:size=16:antialias=true;0
 font-2 = "siji:pixelsize=16;1"
 
@@ -107,7 +107,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = fixed:pixelsize=16;1
+font-0 = Noto Sans Mono:pixelsize=16;1
 font-1 = unifont:fontformat=truetype:size=16:antialias=true;0
 font-2 = "siji:pixelsize=16;1"
 
