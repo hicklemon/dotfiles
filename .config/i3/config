@@ -273,6 +273,7 @@ exec_always --no-startup-id sudo nvidia-settings -a GPUFanControlState=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUTargetFanSpeed=35
 exec_always --no-startup-id sleep 1; sudo nvidia-settings -a GPUTargetFanSpeed=35
 exec --no-startup-id numlockx on
+exec --no-startup-id xset r rate 400 40
 # set desktop background with custom effect
 exec --no-startup-id betterlockscreen -w dim
 #exec feh --bg-scale ~/Pictures/background.png
