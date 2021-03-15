@@ -281,7 +281,7 @@ exec --no-startup-id betterlockscreen -w dim
 # Run xidlehook
 exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..100}; do sleep 0.025; xrandr --output "DP-0" --brightness ${i}; done' 'xrandr --output "DP-0" --brightness 1' --timer 30 'xrandr --output "DP-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "DP-0" --brightness 1'
 
-exec --no-startup-id barrier
+#exec --no-startup-id barrier
 exec --no-startup-id nm-applet
 exec --no-startup-id flameshot
 exec --no-startup-id autokey-gtk
