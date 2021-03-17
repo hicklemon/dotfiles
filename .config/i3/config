@@ -262,6 +262,7 @@ for_window [class="Keeper Password Manager"] floating enable
 for_window [class="Keybase"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="dolphin"] floating enable
+for_window [class="qv4l2"] floating enable
 
 # Transparency and bars
 exec --no-startup-id picom
