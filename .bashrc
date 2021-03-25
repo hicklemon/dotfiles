@@ -18,6 +18,10 @@ shopt -u histappend
 shopt -s cmdhist
 shopt -s lithist
 
+# IDE
+export EDITOR=vim
+export VISUAL=vim
+
 # make Ctrl-W delete portions of words
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -69,3 +73,4 @@ alias ga='git add -p'
 alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
 alias tf='terraform'
 alias dudeicantsee='xrandr --output "DP-0" --brightness 1'
+alias terraformit='terraform fmt && terraform validate && terraform plan && read -p "Press return to continue." && terraform apply'

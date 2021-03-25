@@ -263,9 +263,10 @@ for_window [class="Keybase"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="dolphin"] floating enable
 for_window [class="qv4l2"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # Transparency and bars
-exec --no-startup-id picom
+#exec --no-startup-id picom
 exec_always --no-startup-id /bin/bash /home/mike/.config/polybar/launch.sh
 
 exec_always --no-startup-id sudo nvidia-settings -a GPUPowerMizerMode=1
