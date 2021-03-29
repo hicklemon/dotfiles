@@ -274,6 +274,9 @@ exec_always --no-startup-id sudo nvidia-settings -a GPUPowerMizerMode=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUFanControlState=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUTargetFanSpeed=35
 exec_always --no-startup-id sleep 1; sudo nvidia-settings -a GPUTargetFanSpeed=35
+### OTHER NOISES?
+exec_always --no-startup-id sleep 5; pulseaudio -k
+
 exec --no-startup-id numlockx on
 exec --no-startup-id xset r rate 400 40
 # set desktop background with custom effect
