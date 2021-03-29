@@ -270,7 +270,7 @@ exec_always --no-startup-id pulseaudio -k
 
 # Transparency and bars
 #exec --no-startup-id picom
-exec_always --no-startup-id sleep 5; /bin/bash /home/mike/.config/polybar/launch.sh
+exec_always --no-startup-id /bin/bash /home/mike/.config/polybar/launch.sh
 
 exec_always --no-startup-id sudo nvidia-settings -a GPUPowerMizerMode=1
 ### LOUD NOISES
