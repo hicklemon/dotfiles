@@ -265,6 +265,9 @@ for_window [class="dolphin"] floating enable
 for_window [class="qv4l2"] floating enable
 for_window [class="Pavucontrol"] floating enable
 
+### We do this because we want to bounce PA sometimes, and we do it _before_ polybar because polybar has a crash/coredump issue when pulse is bounce while it's running
+exec_always --no-startup-id sleep 5; pulseaudio -k
+
 # Transparency and bars
 #exec --no-startup-id picom
 exec_always --no-startup-id /bin/bash /home/mike/.config/polybar/launch.sh
@@ -274,8 +277,6 @@ exec_always --no-startup-id sudo nvidia-settings -a GPUPowerMizerMode=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUFanControlState=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUTargetFanSpeed=35
 exec_always --no-startup-id sleep 1; sudo nvidia-settings -a GPUTargetFanSpeed=35
-### OTHER NOISES?
-exec_always --no-startup-id sleep 5; pulseaudio -k
 
 exec --no-startup-id numlockx on
 exec --no-startup-id xset r rate 400 40
