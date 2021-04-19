@@ -31,7 +31,7 @@ alert = #bd2c40
 bottom = true
 ;pseudo-transparency = true
 ;transparency = true
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 36
 ;offset-x = 1%
@@ -84,7 +84,7 @@ cursor-scroll = ns-resize
 
 [bar/mybar]
 bottom = true
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 36
 ;offset-x = 1%
@@ -426,7 +426,7 @@ animation-discharging-framerate = 750
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 75
 
 format = <ramp> <label>
 format-underline = #f50a4d
