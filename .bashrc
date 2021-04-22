@@ -73,7 +73,7 @@ alias gp='git pull --all'
 alias ga='git add -p'
 alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
 alias tf='terraform'
-alias dudeicantsee='xrandr --output "DP-0" --brightness 1'
+alias dudeicantsee='xrandr --output "HDMI-0" --brightness 1'
 alias terraformit='terraform fmt && terraform validate && terraform plan && read -p "Press return to continue." && terraform apply'
 
 alias dprentry='echo $@ >> ~/.dpr-$(date +%Y%m%d)'
