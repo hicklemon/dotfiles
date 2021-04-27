@@ -57,6 +57,7 @@ export PS1=' \e[1;35m\]$(date -Is)\n\[\e[1;30m\][\[\e[1;34m\]\u@\H\[\e[1;30m\]:\
 
 ### Variables
 export AWS_SDK_LOAD_CONFIG=1
+export DOCKER_BUILDKIT=1
 
 ### Functions
 function windowclass() {
@@ -78,3 +79,5 @@ alias terraformit='terraform fmt && terraform validate && terraform plan && read
 
 alias dprentry='echo $@ >> ~/.dpr-$(date +%Y%m%d)'
 alias printdpr='cat ~/.dpr-$(date +%Y%m%d)'
+
+alias ecrlogin='source ~/.ECR_ACCOUNT_ID && aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin ${ECR_ACCOUNT_ID}.dkr.ecr.us-east-2.amazonaws.com'
