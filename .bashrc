@@ -64,6 +64,12 @@ function windowclass() {
     xprop | awk '/WM_CLASS/ {print $NF}'
 }
 
+function assumerole() {
+    unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+    eval $(aws sts assume-role --role-arn ${1} --role-session-name $(date +%Y%m%dT%H%M) | jq -jr ".Credentials | (\"export AWS_ACCESS_KEY_ID='\",.AccessKeyId,\"'\"),\"\n\", (\"export AWS_SECRET_ACCESS_KEY='\",.SecretAccessKey,\"'\"),\"\n\", (\"export AWS_SESSION_TOKEN='\",.SessionToken,\"'\"),\"\n\"")
+    aws sts get-caller-identity
+}
+
 ### Aliases
 alias ls='ls --color=auto'
 alias ll='ls -al'
