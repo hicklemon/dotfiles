@@ -265,6 +265,8 @@ for_window [class="zoom"] floating enable
 for_window [class="dolphin"] floating enable
 for_window [class="qv4l2"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="XClock"] floating enable
+for_window [class="Workspacesclient"] floating enable
 
 ### We do this because we want to bounce PA sometimes, and we do it _before_ polybar because polybar has a crash/coredump issue when pulse is bounce while it's running
 exec_always --no-startup-id pulseaudio -k
