@@ -5,6 +5,7 @@
 !.gitignore
 
 # And other things
+!.config/barrier
 !.config/i3
 !.config/dunst
 !.config/picom
@@ -14,4 +15,3 @@
 !.bash_profile
 !Pictures
 !Pictures/background.png
-!.config/barrier.sgc
