@@ -1,0 +1,40 @@
+section: screens
+	Wintendo:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none +bottom-left +bottom-right 
+		switchCornerSize = 0
+	Riplr:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		preserveFocus = false
+		switchCorners = none +top-left +bottom-left 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	Wintendo:
+		down = Riplr
+	Riplr:
+		up = Wintendo
+end
+
+section: options
+	heartbeat = 1000
+	relativeMouseMoves = false
+	screenSaverSync = false
+	win32KeepForeground = false
+	clipboardSharing = false
+	switchDelay = 500
+	switchCorners = none +top-left +top-right 
+	switchCornerSize = 0
+end
+
