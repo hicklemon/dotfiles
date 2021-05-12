@@ -281,6 +281,8 @@ exec_always --no-startup-id sudo nvidia-settings -a GPUFanControlState=1
 exec_always --no-startup-id sudo nvidia-settings -a GPUTargetFanSpeed=35
 exec_always --no-startup-id sleep 1; sudo nvidia-settings -a GPUTargetFanSpeed=35
 
+exec --no-startup-id xset s 3600
+exec --no-startup-id xset dpms 0 0 3900
 exec --no-startup-id numlockx on
 exec --no-startup-id xset r rate 400 40
 # set desktop background with custom effect
@@ -288,7 +290,7 @@ exec --no-startup-id betterlockscreen -w dim
 #exec feh --bg-scale ~/Pictures/background.png
 
 # Run xidlehook
-exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..100}; do sleep 0.0125; xrandr --output "HDMI-0" --brightness ${i}; done' 'xrandr --output "HDMI-0" --brightness 1' --timer 30 'xrandr --output "HDMI-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "HDMI-0" --brightness 1'
+exec --no-startup-id echo; xidlehook --not-when-fullscreen --not-when-audio --timer 270 'for i in 0.{999..250}; do sleep 0.0125; xrandr --output "HDMI-0" --brightness ${i}; done' 'xrandr --output "HDMI-0" --brightness 1' --timer 30 'xrandr --output "HDMI-0" --brightness 0.05 && betterlockscreen -l dimblur' 'xrandr --output "HDMI-0" --brightness 1'
 
 exec --no-startup-id barrier
 exec --no-startup-id nm-applet
