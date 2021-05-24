@@ -132,6 +132,9 @@ function ecrlogin () {
 # List AWS profiles within the configuration
 alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|'"
 
+# Find the CloudFormation stack for a resource
+alias cfnfind='aws cloudformation describe-stack-resources --query 'StackResources[].StackName' --physical-resource-id'
+
 ################################################################################
 ### Git-specific aliases/functions
 
