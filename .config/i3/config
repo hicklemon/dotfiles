@@ -243,12 +243,11 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-bindsym $mod+Shift+d exec --no-startup-id xrandr --output "HDMI-0" --brightness 1
-bindsym $mod+shift+l exec --no-startup-id xrandr --output "HDMI-0" --brightness 0.05 && betterlockscreen -l dimblur && xrandr --output "HDMI-0" --brightness 1
+bindsym $mod+Shift+d exec --no-startup-id xrandr --output "HDMI-0" --brightness 1.5
+bindsym $mod+shift+l exec --no-startup-id xrandr --output "HDMI-0" --brightness 0.05 && betterlockscreen -l dimblur && xrandr --output "HDMI-0" --brightness 1.5
 bindsym $mod+shift+s exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png -i
 bindsym Print exec flameshot gui
 bindsym $mod+shift+p exec keeperpasswordmanager
-bindsym $mod+shift+b exec --no-startup-id xrandr --output "HDMI-0" --brightness 1
 bindsym $mod+c exec kcalc
 bindsym $mod+e exec dolphin
 
@@ -266,6 +265,7 @@ for_window [class="Keeper Password Manager"] floating enable
 for_window [class="Keybase"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qv4l2"] floating enable
+for_window [class="Signal"] floating enable
 for_window [class="Workspacesclient"] floating enable
 for_window [class="XClock"] floating enable
 for_window [class="zoom"] floating enable
