@@ -69,8 +69,9 @@ alias dudeicantsee='xrandr --output "HDMI-0" --brightness 1'
 # Update pacman mirrorlist with fastest 16 https mirrors updated in the last 4 hours
 alias reflector-update='reflector --country "United States" --age 4 --protocol https --sort rate -f 16 --threads 16 | sudo tee /etc/pacman.d/mirrorlist'
 alias ls='ls --color=auto'
-alias ll='ls -al'
 alias sl='ls'
+alias ll='ls -al'
+alias l='ll'
 
 # Daily progress report - useful for "WHAT WAS I EVEN DOING YESTERDAY?!"
 alias dprentry='echo $@ >> ~/.dpr-$(date +%Y%m%d)'
