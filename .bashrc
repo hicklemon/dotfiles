@@ -137,13 +137,6 @@ alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|
 alias cfnfind='aws cloudformation describe-stack-resources --query 'StackResources[].StackName' --physical-resource-id'
 
 ################################################################################
-### Git-specific aliases/functions
-
-alias gs='git status'
-alias gp='git pull --all'
-alias ga='git add -p'
-
-################################################################################
 ### Terraform-specific aliases/functions
 
 alias tf='terraform'
