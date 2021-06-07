@@ -6,11 +6,8 @@
 ### PATH stuff
 
 ## pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 pyenv virtualenvwrapper
 
 ## npm
@@ -135,6 +132,11 @@ alias profiles="aws configure list-profiles | perl -pe 's|^|export AWS_PROFILE=|
 
 # Find the CloudFormation stack for a resource
 alias cfnfind='aws cloudformation describe-stack-resources --query 'StackResources[].StackName' --physical-resource-id'
+
+################################################################################
+### GitHub
+
+source ~/.github_token
 
 ################################################################################
 ### Terraform-specific aliases/functions
