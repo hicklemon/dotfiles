@@ -28,7 +28,7 @@ MANPATH="${NPM_PACKAGES}/share/man:$(manpath)"
 ### Terminal behavior
 
 # Bash history awesomeness
-export HISTTIMEFORMAT="%Y-%m-%dT%T%z "
+export HISTTIMEFORMAT="%A %Y-%m-%dT%T%z "
 export HISTCONTROL="ignoredups:ignorespace"
 export HISTSIZE="-1"
 export HISTFILESIZE="-1"
@@ -49,11 +49,26 @@ bind 'set match-hidden-files off'
 # OG PS1
 # PS1='[\u@\h \W]\$ '
 # New PS1
-export PROMPT_COMMAND='echo -en "\033[m\033[38;5;2m"$(( `sed -n "s/MemFree:[\t ]\+\([0-9]\+\) kB/\1/p" /proc/meminfo`/1024))"\033[38;5;22m/"$((`sed -n "s/MemTotal:[\t ]\+\([0-9]\+\) kB/\1/Ip" /proc/meminfo`/1024 ))MB" \033[m\033[38;5;55m$(< /proc/loadavg)\033[m"' \
+export PROMPT_COMMAND='log_bash_persistent_history; echo -en "\033[m\033[38;5;2m"$(( `sed -n "s/MemFree:[\t ]\+\([0-9]\+\) kB/\1/p" /proc/meminfo`/1024))"\033[38;5;22m/"$((`sed -n "s/MemTotal:[\t ]\+\([0-9]\+\) kB/\1/Ip" /proc/meminfo`/1024 ))MB" \033[m\033[38;5;55m$(< /proc/loadavg)\033[m"' \
 export PS1=' \e[1;35m\]$(date -Is)\n\[\e[1;30m\][\[\e[1;34m\]\u@\H\[\e[1;30m\]:\[\e[0;37m\]${SSH_TTY} \[\e[0;32m\]+${SHLVL}\[\e[1;30m\]] \[\e[1;37m\]\w\[\e[0;37m\] \[\e[1;92m\]\$\[\e[0m\] '
 
 ################################################################################
 ### Functions and aliases
+
+# Some sort of persistent bash history thing, maybe
+log_bash_persistent_history()
+{
+  [[
+    $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$
+  ]]
+  local date_part="${BASH_REMATCH[1]}"
+  local command_part="${BASH_REMATCH[2]}"
+  if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
+  then
+    echo $date_part "|" "$command_part" >> ~/.persistent_history
+    export PERSISTENT_HISTORY_LAST="$command_part"
+  fi
+}
 
 # Get X window properties - output the window class (useful for i3 floating windows)
 function windowclass() {
@@ -71,7 +86,7 @@ alias ll='ls -al'
 alias l='ll'
 
 # Daily progress report - useful for "WHAT WAS I EVEN DOING YESTERDAY?!"
-alias dprentry='echo $@ >> ~/.dpr-$(date +%Y%m%d)'
+alias dpr='echo "*${@}" >> ~/.dpr-$(date +%Y%m%d)'
 alias printdpr='cat ~/.dpr-$(date +%Y%m%d)'
 
 ################################################################################
@@ -96,6 +111,19 @@ function assumerole() {
 
 # Log into ECR using current credentials
 function ecrlogin () {
+  ECR_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+  ECR_REGION="${ECR_REGION:-"us-east-1"}"
+  echo "Using ECR region ${ECR_REGION} - if you need to change this, export ECR_REGION."
+  if ! aws --region ${ECR_REGION} ecr get-login-password | docker login --username AWS --password-stdin ${ECR_ACCOUNT_ID}.dkr.ecr.${ECR_REGION}.amazonaws.com 2> /dev/null
+  then
+    return 1
+  else
+    echo "Describing ECR repositories in ${ECR_ACCOUNT_ID}.dkr.ecr.${ECR_REGION}.amazonaws.com..."
+    aws --region ${ECR_REGION} ecr describe-repositories
+    return 0
+  fi
+}
+function ecrlogin-main () {
   REGION_REGEX='^[a-z]{2}-.*?-[1-3]$'
   ACCOUNT_REGEX='^[0-9]{12}$'
   if [ -e ~/.ecr_config ]

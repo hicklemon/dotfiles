@@ -14,7 +14,7 @@ set $mod Mod4
 ### HERE BE GAPS
 
 # Disable window titlebars entirely
-for_window [class="^.*"] border pixel 2
+#for_window [class="^.*"] border pixel 2
 
 # Set inner/outer gaps
 gaps inner 3
@@ -243,7 +243,7 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-bindsym $mod+Shift+d exec --no-startup-id xrandr --output "HDMI-0" --brightness 1.5
+bindsym $mod+Shift+d exec --no-startup-id xrandr --output "HDMI-0" --brightness 1
 bindsym $mod+shift+l exec --no-startup-id xrandr --output "HDMI-0" --brightness 0.05 && betterlockscreen -l dimblur && xrandr --output "HDMI-0" --brightness 1
 bindsym $mod+shift+s exec --no-startup-id maim -s -u | xclip -selection clipboard -t image/png -i
 bindsym Print exec flameshot gui
@@ -269,6 +269,7 @@ for_window [class="Signal"] floating enable
 for_window [class="Workspacesclient"] floating enable
 for_window [class="XClock"] floating enable
 for_window [class="zoom"] floating enable
+for_window [class="VirtualBox Machine"] floating enable
 
 ### We do this because we want to bounce PA sometimes, and we do it _before_ polybar because polybar has a crash/coredump issue when pulse is bounce while it's running
 exec_always --no-startup-id pulseaudio -k
