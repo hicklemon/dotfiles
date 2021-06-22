@@ -270,6 +270,7 @@ for_window [class="Workspacesclient"] floating enable
 for_window [class="XClock"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="VirtualBox Machine"] floating enable
+for_window [class="VirtualBox Manager"] floating enable
 
 ### We do this because we want to bounce PA sometimes, and we do it _before_ polybar because polybar has a crash/coredump issue when pulse is bounce while it's running
 exec_always --no-startup-id pulseaudio -k
