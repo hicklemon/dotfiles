@@ -78,6 +78,8 @@ function windowclass() {
 # Set X display brightness to maximum in case screen saver breaks it
 alias dudeicantsee='xrandr --output "HDMI-0" --brightness 1'
 
+alias duf='du -sk * 2>&1 | grep -v cannot | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+
 # Update pacman mirrorlist with fastest 16 https mirrors updated in the last 4 hours
 alias reflector-update='reflector --country "United States" --age 4 --protocol https --sort rate -f 16 --threads 16 | sudo tee /etc/pacman.d/mirrorlist'
 alias grep='grep --color'
